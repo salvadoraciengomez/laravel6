@@ -1,0 +1,67 @@
+<?php
+
+Use Illuminate\Controllers\DatabaseController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome2');
+});
+
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+
+Route::get('/mas', function () {
+    return view('mas');
+});
+
+Route::get('/articles', function () {
+    
+    return view('articles',[
+        'todos' => App\Articulo::all()
+        //'todos' => App\Articulo::latest()->get() //Para ordenarlos por fecha
+    ]);
+    //return $todos; //JSON
+});
+
+
+Route::get('/old', function () {
+    $estaVar= request('datos');
+    return view('welcome',[
+        'datos' => $estaVar
+    ]);
+});
+
+Route::get('/entradas/{wildcard}', function ($laEntrada) {
+
+    $misEntradas=[
+        'entry' => 'Array 1st entry',
+        'entry2' => '2nd array'
+    ];
+
+    if (! array_key_exists($laEntrada, $misEntradas)) abort(404,'No está el índicee especificado');
+
+    return view('entradaArr',[
+        'laEntrada' => $misEntradas[$laEntrada] //?? 'No está el índice especificado'
+    ]);
+});
+
+Route::get('/publicaciones/{e}', 'DatabaseController@show');
+
+
+
+Route::get('/articulos','ArticulosController@index');
+Route::post('/articulos', 'ArticulosController@store');
+Route::get('/articulos/crear','ArticulosController@create');
+Route::get('/articulos/{articulo}', 'ArticulosController@show'); 
+Route::get('/articulos/{articulo}/editar', 'ArticulosController@edit');
+Route::put('/articulos/{articulo}', 'ArticulosController@update');

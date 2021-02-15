@@ -1,0 +1,13 @@
+// 
+//Necesita ser compilado por 'npm run dev' desde SCSS resources/sass/app.scss
+// $color1:orange;
+// *,body{
+//     background-color:$color1;
+// }
+
+$className:active_link;
+
+li.active_link {
+    background-color: red;
+}
+

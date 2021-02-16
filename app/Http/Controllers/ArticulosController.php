@@ -36,11 +36,7 @@ class ArticulosController extends Controller
         //Almacena de forma persistente un recurso
 
         //Validación y Almacenamiento
-        Articulo::create(request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]));
+        Articulo::create($this->validarArticulos());
 
         return redirect('/articulos');
     }
@@ -54,23 +50,22 @@ class ArticulosController extends Controller
 
     public function update(Articulo $articulo){
 
-        request()->validate([
-            'title' => ['required', 'min:3', 'max:25'], //Carácteres permitidos
-            'excerpt' => 'required',
-            'body' => 'required'
-        ]);
-
+        
         //Almacena el recurso editado
         //$articulo = Articulo::find($id);
 
-        $articulo->title = request('title');
-        $articulo->excerpt = request('excerpt');
-        $articulo->body = request('body');
-
-        $articulo->save();
+        $articulo->update($this->validarArticulos());
 
         return redirect('/articulos/'.$articulo->id);
 
+    }
+
+    protected function validarArticulos(){
+        return request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'body' => 'required'
+        ]);
     }
     
     public function destroy(){

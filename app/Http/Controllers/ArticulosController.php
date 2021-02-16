@@ -17,9 +17,9 @@ class ArticulosController extends Controller
     }
 
 
-    public function show($id){
+    public function show(Articulo $articulo){
         //Show a single resource
-        $articulo = Articulo::findOrFail($id);
+        //$articulo = Articulo::findOrFail($id); //was show($id)
 
         return view('articulos.show',['articulo' => $articulo]);
     }
@@ -56,14 +56,14 @@ class ArticulosController extends Controller
         return redirect('/articulos');
     }
 
-    public function edit($id){
+    public function edit(Articulo $articulo){
         //Muestra una vista para la edición del recurso
-        $articulo = Articulo::find($id);
+        //$articulo = Articulo::find($id);
         //return view('articulos.edit', ['articulo' => $articulo]);
         return view('articulos.edit', compact('articulo'));
     }
 
-    public function update($id){
+    public function update(Articulo $articulo){
 
         request()->validate([
             'title' => ['required', 'min:3', 'max:25'], //Carácteres permitidos
@@ -72,7 +72,7 @@ class ArticulosController extends Controller
         ]);
 
         //Almacena el recurso editado
-        $articulo = Articulo::find($id);
+        //$articulo = Articulo::find($id);
 
         $articulo->title = request('title');
         $articulo->excerpt = request('excerpt');

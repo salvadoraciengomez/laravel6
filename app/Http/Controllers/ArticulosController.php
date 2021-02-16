@@ -56,7 +56,7 @@ class ArticulosController extends Controller
 
         $articulo->update($this->validarArticulos());
 
-        return redirect('/articulos/'.$articulo->id);
+        return redirect(route('articulos.show', $articulo));
 
     }
 

@@ -25,7 +25,7 @@ class ArticulosController extends Controller
 
     public function create(){
         //Muestra una vista para crear un nuevo recurso
-        return view('articulos.create');
+        return view('articulos.crear');
     }
 
     public function store(){
@@ -33,7 +33,8 @@ class ArticulosController extends Controller
 
         //Validación
         request()->validate([
-            'title' => ['required', 'min:3', 'max:25'], //Carácteres permitidos
+            // 'title' => ['required', 'min:3', 'max:25'], //Carácteres permitidos
+            'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required'
         ]);

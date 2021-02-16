@@ -62,6 +62,7 @@ Route::get('/publicaciones/{e}', 'DatabaseController@show');
 Route::get('/articulos','ArticulosController@index');
 Route::post('/articulos', 'ArticulosController@store');
 Route::get('/articulos/crear','ArticulosController@create');
+Route::get('/articulos/create','ArticulosController@create');
 Route::get('/articulos/{articulo}', 'ArticulosController@show'); 
 Route::get('/articulos/{articulo}/editar', 'ArticulosController@edit');
 Route::put('/articulos/{articulo}', 'ArticulosController@update');

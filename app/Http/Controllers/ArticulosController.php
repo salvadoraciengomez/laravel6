@@ -29,29 +29,18 @@ class ArticulosController extends Controller
         // return view('articulos.crear');
 
         //Uso de FirstAvailableView (View Facade)
-        return View::first(['articulos.crear']);
+        return View::first(['articulos.create']);
     }
 
     public function store(){
         //Almacena de forma persistente un recurso
 
-        //Validación
-        request()->validate([
-            // 'title' => ['required', 'min:3', 'max:25'], //Carácteres permitidos
+        //Validación y Almacenamiento
+        Articulo::create(request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
             'body' => 'required'
-        ]);
-
-
-        //Almacenamiento
-        $nuevoArticulo = new Articulo();
-
-        $nuevoArticulo->title = request('title');
-        $nuevoArticulo->excerpt = request('excerpt');
-        $nuevoArticulo->body = request('body');
-
-        $nuevoArticulo->save();
+        ]));
 
         return redirect('/articulos');
     }

@@ -19,16 +19,26 @@
         ?>
         @csrf 
         <label for="title">Título:</label>
-        <input type="text" name="title" id="title" value="">
+        <input type="text" name="title" id="title" value="{{ old('title') }}">
+            @if($errors->has('title'))
+                <p style="color:red">Título no suministrado</p>
+            @endif
         <br>
         <label for="excerpt">Excerpt:</label>
-        <textarea name="excerpt" id="excerpt" value=""></textarea>
+        <textarea name="excerpt" id="excerpt" value="{{ old('excerpt') }}"></textarea>
+            @error('excerpt')
+                <p style="color:red">{{ $errors->first('excerpt') }}</p>
+            @enderror
         <br>
         <label for="title">Body:</label>
-        <textarea 
+        <textarea class="@error('body') tieneError @enderror" 
             name="body" 
             id="body"
-            ></textarea>
+            value="{{ old('body') }}"
+            >{{ old('body') }}</textarea>
+            @error('body')
+                <p class="tieneError">{{ $errors->first('body') }}</p>
+            @enderror
         <br>
         <button type="submit">Añadir</button>
 

@@ -81,10 +81,5 @@
     </head>
     <body>
         @yield ('contenido')
-        @php
-            if (Request::path() === 'articles') $contentTag='content';
-            else $contentTag= '';
-        @endphp
-        @yield ('{{ $contentTag }}')
     </body>
 </html>

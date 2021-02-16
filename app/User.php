@@ -36,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function articulos(){
+        //Devuelve colección
+        return $this->hasMany(Articulo::class); //select * from articles where userid=x
+    }
+
+    public function proyectos(){
+        //Devuelve colección
+        return $this->hasMany(Project::class); //select * from projects where userid=x
+    }
+
+    //Más métodos Eloquent
+    // hasOne · hasMany · belongsTo · belongsToMany
+
 }

@@ -23,7 +23,7 @@ class Articulo extends Model
         return 'slug';
     }
 
-    public function user(){
-        
-    }
+    // public function usuario(){
+    //     return $this->belongsTo(User:class, 'user_id');
+    // }
 }

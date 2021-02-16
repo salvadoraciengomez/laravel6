@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateArticulosTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. CurrentVIDEO 30 1:09
      *
      * @return void
      */
@@ -15,6 +15,7 @@ class CreateArticulosTable extends Migration
     {
         Schema::create('articulos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsingedBigInteger('user_id');
             $table->string('title');
             $table->text('excerpt');
             $table->text('body');

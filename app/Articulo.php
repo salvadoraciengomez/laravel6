@@ -15,6 +15,10 @@ class Articulo extends Model
     //protected $guarded=[];
     
     
+    public function path(){
+        return route('articulos.show', $this);
+    }
+
     public function getRouteKeyName(){
         return 'slug';
     }

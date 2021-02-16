@@ -38,7 +38,7 @@ class ArticulosController extends Controller
         //Validación y Almacenamiento
         Articulo::create($this->validarArticulos());
 
-        return redirect('/articulos');
+        return redirect(route('articulos.index'));
     }
 
     public function edit(Articulo $articulo){
@@ -56,7 +56,7 @@ class ArticulosController extends Controller
 
         $articulo->update($this->validarArticulos());
 
-        return redirect(route('articulos.show', $articulo));
+        return redirect(route($articulo->path()));
 
     }
 

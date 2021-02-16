@@ -59,7 +59,7 @@ Route::get('/publicaciones/{e}', 'DatabaseController@show');
 
 
 
-Route::get('/articulos','ArticulosController@index');
+Route::get('/articulos','ArticulosController@index')->name('articulos.index');
 Route::post('/articulos', 'ArticulosController@store');
 Route::get('/articulos/crear','ArticulosController@create');
 Route::get('/articulos/create','ArticulosController@create');

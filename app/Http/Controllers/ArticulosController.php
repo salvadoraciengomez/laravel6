@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Articulo;
+use Illuminate\Support\Facades\View;
 
 class ArticulosController extends Controller
 {
@@ -25,7 +26,10 @@ class ArticulosController extends Controller
 
     public function create(){
         //Muestra una vista para crear un nuevo recurso
-        return view('articulos.crear');
+        // return view('articulos.crear');
+
+        //Uso de FirstAvailableView (View Facade)
+        return View::first(['articulos.crear']);
     }
 
     public function store(){

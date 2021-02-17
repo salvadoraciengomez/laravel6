@@ -31,4 +31,8 @@ class Articulo extends Model
         //Por defecto intentaría devolver usuario_id (nombre del método + _id)
         //Por eso como segundo parámetro se le especifica que busque user_id
     }
+
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
 }

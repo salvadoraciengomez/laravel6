@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Articulo;
+//use App\Tag;
 use Illuminate\Support\Facades\View;
 
 class ArticulosController extends Controller

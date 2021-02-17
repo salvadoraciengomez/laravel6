@@ -30,17 +30,26 @@ class ArticulosController extends Controller
 
     public function create(){
         //Muestra una vista para crear un nuevo recurso
-        // return view('articulos.crear');
+        
+        return view('articulos.create',[
+            'tags' => Tag::all()
+        ]);
 
         //Uso de FirstAvailableView (View Facade)
-        return View::first(['articulos.create']);
+        //return View::first(['articulos.create']);
     }
 
     public function store(){
         //Almacena de forma persistente un recurso
 
         //Validación y Almacenamiento
-        Articulo::create($this->validarArticulos());
+        $this->validarArticulos();
+
+        $articulo= new Articulo(request(['title','excerpt','body']));
+        $articulo->user_id=1;
+        $articulo->save();
+
+        $articulo->tags()->attach(request('tags'));
 
         return redirect(route('articulos.index'));
     }
@@ -68,7 +77,8 @@ class ArticulosController extends Controller
         return request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'tags' => 'exists:tags,id' //tiene que existir en tabla tag con dicha id
         ]);
     }
     

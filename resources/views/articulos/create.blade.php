@@ -30,7 +30,7 @@
                 <p style="color:red">{{ $errors->first('excerpt') }}</p>
             @enderror
         <br>
-        <label for="title">Body:</label>
+        <label for="body">Body:</label>
         <textarea class="@error('body') tieneError @enderror" 
             name="body" 
             id="body"
@@ -40,6 +40,16 @@
                 <p class="tieneError">{{ $errors->first('body') }}</p>
             @enderror
         <br>
+        <label for="tags">Tags:</label>
+        <select name="tags[]"
+                multiple>
+            @foreach ($tags as $tag)
+                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+            @endforeach
+        </select>
+            @error('tags')
+                <p class="tieneError">{{ $message }}</p>
+            @enderror
         <button type="submit">Añadir</button>
 
     </form>

@@ -38,7 +38,10 @@ class User extends Authenticatable
     ];
 
     public function articulos(){
+
         //Devuelve colección
+        //Desde php artisan tinker>>> $user = App\User::find(1);
+        //$user->articulos; (devuelve colección)
         return $this->hasMany(Articulo::class); //select * from articles where userid=x
     }
 

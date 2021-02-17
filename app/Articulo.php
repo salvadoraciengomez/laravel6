@@ -23,7 +23,12 @@ class Articulo extends Model
         return 'slug';
     }
 
-    // public function usuario(){
-    //     return $this->belongsTo(User:class, 'user_id');
-    // }
+    public function usuario(){
+        //Permite desde PHPArtisan Tinker
+        //>>> App\Articulo::find(1)->usuario;
+        //Devuelve obj Usuario al que corresponde el articulo 1
+        return $this->belongsTo(User::class, 'user_id');
+        //Por defecto intentaría devolver usuario_id (nombre del método + _id)
+        //Por eso como segundo parámetro se le especifica que busque user_id
+    }
 }

@@ -8,8 +8,11 @@
 </p>
 
 <p>
-    @foreach ($articulo->tags as $tag)
+    @forelse ($articulo->tags as $tag)
 
-        <a href="">{{ $tag->name }}</a>
-        
-    @endforeach
+        {{-- <a href="/articulos?tag={{ $tag->name }}">{{ $tag->name }}</a> --}}
+        <a href="{{ route('articulos.index', ['tag'=> $tag->name]) }}">{{ $tag->name }}</a>
+    @empty
+        <p>No hay etiquetas que coincidan</p>
+    @endforelse
+</p>

@@ -4,15 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Articulo;
-//use App\Tag;
+use App\Tag;
 use Illuminate\Support\Facades\View;
 
 class ArticulosController extends Controller
 {
     public function index(){
         //Render a list of a resource
-
-        $articulos = Articulo::latest()->get();
+        if (request('tag')){
+            $articulos= Tag::where('name', request('tag'))->firstOrFail()->articulos;
+        }else{
+            $articulos= Articulo::latest()->get();
+        }
         return view('articulos.index',['articulos' => $articulos]);
 
     }

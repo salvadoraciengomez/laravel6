@@ -67,10 +67,14 @@ Use Illuminate\Controllers\DatabaseController;
 // });
 
 #7YOtra
-Route::get('/', function(App\Example $example){
+// Route::get('/', function(App\Example $example){
     
-    ddd($example);
-});
+//     ddd($example);
+// });
+
+#8 Service Container a través de controlador
+
+Route::get('/', 'PagesController@home');
 
 
 

@@ -4,8 +4,10 @@
 
     class Ejemplo{
         
-        public function go(){
-            dump('It Works!');
+        protected $svcApi;
+
+        public function __construct($svcApi){
+            $this->svcApi=$svcApi;
         }
     }
 

@@ -31,8 +31,21 @@ Use Illuminate\Controllers\DatabaseController;
 //     $example->go();
 // });
 
+#3
+// app()->bind('ejemplo', function(){
+//     return new \App\Ejemplo();
+// });
+
+// Route::get('/', function(){
+//     $ejemplo = resolve('ejemplo'); //Iría al bloque de arriba
+
+//     ddd($ejemplo);
+// });
+
+#4 with config\services
 app()->bind('ejemplo', function(){
-    return new \App\Ejemplo();
+    $svc= config('services.svcApi');
+    return new \App\Ejemplo($svc);
 });
 
 Route::get('/', function(){

@@ -1,6 +1,7 @@
 <?php
 
 Use Illuminate\Controllers\DatabaseController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +13,27 @@ Use Illuminate\Controllers\DatabaseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome2');
+// Route::get('/', function () {
+//     return view('welcome2');
+// });
+
+Route::get('/', function(){
+    $container= new \App\Container();
+
+    $container->bind('example', function(){
+        return new \App\Example();
+    });
+
+    ddd($container);
 });
 
+
+
+
+
+
+
+//Proyecto
 Route::get('/contacto', function () {
     return view('contacto');
 });

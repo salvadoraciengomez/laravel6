@@ -75,6 +75,7 @@ Use Illuminate\Controllers\DatabaseController;
 #8 Service Container a través de controlador
 
 Route::get('/', 'PagesController@home');
+//Recomendado usar las instanciaciones en AppServiceProvider@register
 
 
 

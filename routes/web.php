@@ -24,7 +24,9 @@ Route::get('/', function(){
         return new \App\Example();
     });
 
-    ddd($container);
+    $example = $container->resolve('example');
+
+    ddd($example);
 });
 
 

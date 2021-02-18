@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
 
         //Creación del binding para la clase Worker
         $this->app->bind('worker', function(){
-            return new Worker();
+            return new Worker('api-key-param');
         });
     }
 

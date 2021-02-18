@@ -59,8 +59,9 @@ Use Illuminate\Controllers\DatabaseController;
 //     return new \App\Example();
 // });
 
+#6Otra instanciación
 Route::get('/', function(){
-    $ejemplo = resolve('App\Example'); 
+    $ejemplo = app()->make(App\Example::class); 
 
     ddd($ejemplo);
 });

@@ -17,18 +17,29 @@ Use Illuminate\Controllers\DatabaseController;
 //     return view('welcome2');
 // });
 
-Route::get('/', function(){
-    $container= new \App\Container();
 
-    $container->bind('example', function(){
-        return new \App\Example();
-    });
+#Service Containers #1 #2
+// Route::get('/', function(){
+//     $container= new \App\Container();
 
-    $example = $container->resolve('example');
+//     $container->bind('example', function(){
+//         return new \App\Example();
+//     });
 
-    $example->go();
+//     $example = $container->resolve('example');
+
+//     $example->go();
+// });
+
+app()->bind('ejemplo', function(){
+    return new \App\Ejemplo();
 });
 
+Route::get('/', function(){
+    $ejemplo = resolve('ejemplo'); //Iría al bloque de arriba
+
+    ddd($ejemplo);
+});
 
 
 

@@ -2,9 +2,14 @@
 
     namespace App;
 
+    
+
     class Example{
-        public function go(){
-            dump('It Works!');
+
+        protected $collaborator;
+        
+        public function __construct(Collaborator $collaborator){
+            $this->collaborator=$collaborator;
         }
     }
 

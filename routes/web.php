@@ -43,13 +43,24 @@ Use Illuminate\Controllers\DatabaseController;
 // });
 
 #4 with config\services
-app()->bind('ejemplo', function(){
-    $svc= config('services.svcApi');
-    return new \App\Ejemplo($svc);
-});
+// app()->bind('ejemplo', function(){
+//     $svc= config('services.svcApi');
+//     return new \App\Ejemplo($svc);
+// });
+
+// Route::get('/', function(){
+//     $ejemplo = resolve('ejemplo'); //Iría al bloque de arriba
+
+//     ddd($ejemplo);
+// });
+
+#5 Haciendo el binding a través de resolve e Inyectando tercera Clase Collaborator en Example
+// app()->bind('example', function(){
+//     return new \App\Example();
+// });
 
 Route::get('/', function(){
-    $ejemplo = resolve('ejemplo'); //Iría al bloque de arriba
+    $ejemplo = resolve('App\Example'); 
 
     ddd($ejemplo);
 });

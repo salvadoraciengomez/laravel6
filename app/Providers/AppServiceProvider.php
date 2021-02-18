@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Worker;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
             $foo = 'foobar';
 
             return new \App\Example($collaborator, $foo);
+        });
+
+        //Creación del binding para la clase Worker
+        $this->app->bind('worker', function(){
+            return new Worker();
         });
     }
 

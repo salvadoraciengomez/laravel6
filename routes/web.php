@@ -26,7 +26,7 @@ Route::get('/', function(){
 
     $example = $container->resolve('example');
 
-    ddd($example);
+    $example->go();
 });
 
 

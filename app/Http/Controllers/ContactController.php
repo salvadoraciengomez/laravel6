@@ -1,7 +1,7 @@
 <?php
     namespace App\Http\Controllers;
     use Illuminate\Support\Facades\Mail;
-    use App\Mail\ContactMe;
+    // use App\Mail\ContactMe;
 
     class ContactController extends Controller{
         
@@ -24,7 +24,8 @@
             #Segundo método de envío a través de plantilla Blade (email en HTML)
             Mail::to(request('email'))
                 //Argumento del constructor para rellenar email
-                ->send(new ContactMe('about this topic'));
+                // ->send(new ContactMe('about this topic'));
+                ->send (new Contact());
 
             return redirect('/contact')
             ->with('message', 'Email enviado!');

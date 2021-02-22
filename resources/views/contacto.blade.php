@@ -11,6 +11,11 @@
     <br>
     <input typer="text" id="email" name="email">
     <br>
+    {{-- Frontend email verification --}}
+    @error('email')
+        <p style="color:red">{{ $message }}</p>
+    @enderror
+    <br>
     <button type="submit">Email me</button>
 
 </form>

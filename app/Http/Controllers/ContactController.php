@@ -23,7 +23,8 @@
 
             #Segundo método de envío a través de plantilla Blade (email en HTML)
             Mail::to(request('email'))
-                ->send(new ContactMe());
+                //Argumento del constructor para rellenar email
+                ->send(new ContactMe('about this topic'));
 
             return redirect('/contact')
             ->with('message', 'Email enviado!');

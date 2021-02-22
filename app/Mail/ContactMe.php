@@ -12,14 +12,22 @@ class ContactMe extends Mailable
 {
     use Queueable, SerializesModels;
 
+    //Las propiedades public van hacia la plantilla blade
+    public $topic;
+
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+
+
+     //Se inserta la propiedad topic en el constructor y se inicializa 
+     //habría que pasarla en los argumentos del constructor en el ContactController
+    public function __construct($topic)
     {
-        //
+        $this->topic=$topic;
     }
 
     /**

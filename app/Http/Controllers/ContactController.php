@@ -19,7 +19,8 @@
                     ->subject('HelloThere');
             });
 
-            return redirect('/contact');
+            return redirect('/contact')
+            ->with('message', 'Email enviado!');
         }
     }
 ?>

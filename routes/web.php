@@ -83,6 +83,7 @@ Route::get('/', 'PagesController@home');
 
 Route::get('payments/create', 'PaymentsController@create')->middleware('auth');
 Route::post('payments', 'PaymentsController@store')->middleware('auth');
+// Route::post('payments/create/payments', 'PaymentsController@store')->middleware('auth');
 Auth::routes();
 
 

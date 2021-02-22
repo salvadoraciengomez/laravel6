@@ -3,6 +3,17 @@
 @section ('contenido')
     <h1>CONTENIDO PRINCIPAL</h1>
 @endsection
+
+<form method="POST" action="/contact">
+    @csrf
+    <label for="email">Dirección de correo:
+    </label>
+    <br>
+    <input typer="text" id="email" name="email">
+    <br>
+    <button type="submit">Email me</button>
+
+</form>
 <!-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

@@ -87,6 +87,10 @@ Route::get('/contacto', function () {
     return view('contacto');
 });
 
+Route::get('/contact', 'ContactController@show');
+Route::post('/contact', 'ContactController@store');
+
+
 Route::get('/mas', function () {
     return view('mas');
 });

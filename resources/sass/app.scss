@@ -1,13 +1,8 @@
-// 
-//Necesita ser compilado por 'npm run dev' desde SCSS resources/sass/app.scss
-// $color1:orange;
-// *,body{
-//     background-color:$color1;
-// }
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-$className:active_link;
+// Variables
+@import 'variables';
 
-li.active_link {
-    background-color: red;
-}
-
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

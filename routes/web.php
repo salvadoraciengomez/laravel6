@@ -137,3 +137,7 @@ Route::get('/articulos/create','ArticulosController@create');
 Route::get('/articulos/{articulo}', 'ArticulosController@show')->name('articulos.show'); 
 Route::get('/articulos/{articulo}/editar', 'ArticulosController@edit');
 Route::put('/articulos/{articulo}', 'ArticulosController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

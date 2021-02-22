@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <button method="POST" action="/payments">Make Payment</button>
+    <form method="POST" action="/payments">
+        @csrf
+        <button type="submit">Make Payment</button>
+    </form>
 </body>
 </html>

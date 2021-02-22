@@ -78,7 +78,8 @@ Route::get('/', 'PagesController@home');
 //Recomendado usar las instanciaciones en AppServiceProvider@register
 
 
-
+Route::get('conversations', 'ConversationsController@index');
+Route::get('conversations/{conversation}', 'ConversationsController@show');
 
 
 Route::get('payments/create', 'PaymentsController@create')->middleware('auth');

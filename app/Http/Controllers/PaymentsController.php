@@ -12,10 +12,11 @@
 
         public function store(){
             // Notification::send(request()->user(), new PaymentReceived());
-            // request()->user()->notify(new PaymentReceived());
+            request()->user()->notify(new PaymentReceived());
+            // $user->notify(new PaymentReceived());
             
-            //ProductPurchased::dispatch('toy');
-            event(new ProductPurchased('toy'));
+            // ProductPurchased::dispatch('toy');
+            // event(new ProductPurchased('toy'));
         }
     }
 ?>

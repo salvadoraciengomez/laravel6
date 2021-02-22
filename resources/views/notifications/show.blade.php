@@ -2,7 +2,9 @@
 @section ('content')
     <ul>
         @foreach ($notifications as $notification)
-            <li>{{ $notification->type }}</li>
+            @if ($notification->type === 'App\Notifications\PaymentReceived')
+                <li>We have received a payment of {{ $notification->data['amount'] }} from you</li>
+            @endif
         @endforeach
     </ul>
 @endsection

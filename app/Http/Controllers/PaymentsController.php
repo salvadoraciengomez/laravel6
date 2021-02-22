@@ -12,7 +12,7 @@
 
         public function store(){
             // Notification::send(request()->user(), new PaymentReceived());
-            request()->user()->notify(new PaymentReceived());
+            request()->user()->notify(new PaymentReceived(900));//$amount
             // $user->notify(new PaymentReceived());
             
             // ProductPurchased::dispatch('toy');

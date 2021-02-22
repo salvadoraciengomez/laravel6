@@ -73,7 +73,7 @@ Use Illuminate\Controllers\DatabaseController;
 // });
 
 #8 Service Container a través de controlador
-
+Auth::routes();
 Route::get('/', 'PagesController@home');
 //Recomendado usar las instanciaciones en AppServiceProvider@register
 
@@ -84,8 +84,9 @@ Route::get('conversations/{conversation}', 'ConversationsController@show');
 
 Route::get('payments/create', 'PaymentsController@create')->middleware('auth');
 Route::post('payments', 'PaymentsController@store')->middleware('auth');
+Route::get('notifications','UserNotificationsController@show')->middleware('auth');
 // Route::post('payments/create/payments', 'PaymentsController@store')->middleware('auth');
-Auth::routes();
+
 
 
 

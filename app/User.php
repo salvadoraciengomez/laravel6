@@ -60,7 +60,7 @@ class User extends Authenticatable
     // hasOne · hasMany · belongsTo · belongsToMany
 
     public function roles(){
-        return $this->belongsTo(Role::class)->withTimestamps();;
+        return $this->belongsToMany(Role::class)->withTimestamps();;
     }
 
     public function assignRole($role){

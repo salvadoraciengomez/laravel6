@@ -5,6 +5,9 @@
     use App\Reply;
 
     class Conversation extends Model{
+
+        public $best_reply_id;
+
         public function replies(){
             return $this->hasMany(Reply::class);
         }
@@ -15,7 +18,7 @@
             return $this->belongsTo(User::class);
         }
         public function setBestReply(Reply $reply){
-            $this->bestReplyId=$reply->id;
+            $this->best_reply_id=$reply->id;
             $this->save();
         }
     }

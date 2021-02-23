@@ -2,6 +2,10 @@
     <div>
         <p> {{ $reply->user->name }} said... </p>
 
+        @if($reply->isBest())
+            <span style="color:green">BestReply!</span>
+        @endif
+
         {{ $reply->body }}
 
         @can ('update', $conversation)

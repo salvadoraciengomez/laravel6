@@ -59,4 +59,12 @@ class User extends Authenticatable
     //Más métodos Eloquent
     // hasOne · hasMany · belongsTo · belongsToMany
 
+    public function roles(){
+        return $this->belongsTo(Role::class)->withTimestamps();;
+    }
+
+    public function assignRole($role){
+        $this->roles()->save($role);
+    }
+
 }

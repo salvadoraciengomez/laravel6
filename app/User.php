@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Conversation;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -48,6 +50,10 @@ class User extends Authenticatable
     public function proyectos(){
         //Devuelve colección
         return $this->hasMany(Project::class); //select * from projects where userid=x
+    }
+
+    public function conversaciones(){
+        return $this->hasMany(Conversation::class);
     }
 
     //Más métodos Eloquent

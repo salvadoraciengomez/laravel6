@@ -14,7 +14,7 @@ class ProductPurchased
 //php artisan make:event ProductPurchased
 
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable,  InteractsWithSockets, SerializesModels; 
 
     public $nombre;
 

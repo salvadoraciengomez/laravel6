@@ -3,6 +3,8 @@
 
     use Illuminate\Support\Facades\Notification;
     use App\Notifications\PaymentReceived;
+    use App\Events\ProductPurchased;
+    //use App\Listeners\AwardAchievements;
 
     class PaymentsController{
 
@@ -11,12 +13,15 @@
         }
 
         public function store(){
-            // Notification::send(request()->user(), new PaymentReceived());
-            request()->user()->notify(new PaymentReceived(900));//$amount
-            // $user->notify(new PaymentReceived());
+            #Prueba para las notificaciones:
+            //request()->user()->notify(new PaymentReceived(900));//$amount
+                #Otros métodos
+                // Notification::send(request()->user(), new PaymentReceived());
+                // $user->notify(new PaymentReceived());
             
-            // ProductPurchased::dispatch('toy');
-            // event(new ProductPurchased('toy'));
+            #Prueba para eventServiceProvider:
+            ProductPurchased::dispatch('toy');
+            //event(new ProductPurchased('toy'));
         }
     }
 ?>

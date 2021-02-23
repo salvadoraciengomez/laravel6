@@ -6,7 +6,7 @@ use App\Events\ProductPurchased;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class AwardAchievements
+class SendShareableCoupon
 {
     /**
      * Create the event listener.
@@ -26,6 +26,6 @@ class AwardAchievements
      */
     public function handle(ProductPurchased $event)
     {
-        var_dump('Check achievements');
+        var_dump('CreatedCoupon');
     }
 }

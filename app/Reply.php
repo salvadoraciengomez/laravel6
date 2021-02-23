@@ -10,7 +10,8 @@ class Reply extends Model
         return $this->belongsTo(Conversation::class);
     }
 
-    public function usuario(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
+
 }

@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //Gate establece un permiso entre el usuario autenticado y una acción permitida
-        Gate::define('update-conversation', function(User $user, Conversation $conversation){
+        Gate::define('update-conversation', function($user, $conversation){
             //si devuelve true, cualquier usuario logueado podría hacer  @can('update-conversation')
             //para permitir invitados, hay que especificar function(?User $user, Conversation $conversation)
             //return true;

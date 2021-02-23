@@ -1,6 +1,6 @@
 @foreach ($conversation->replies as $reply)
     <div>
-        <p> {{ $reply->usuario->name }} said... </p>
+        <p> {{ $reply->user->name }} said... </p>
 
         {{ $reply->body }}
 

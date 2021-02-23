@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -25,6 +26,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //Gate establece un permiso entre el usuario autenticado y una acción permitida
+        Gate::define('update-conversation', function(User $user, Conversation $conversation){
+            //si devuelve true, cualquier usuario logueado podría hacer  @can('update-conversation')
+            //para permitir invitados, hay que especificar function(?User $user, Conversation $conversation)
+            //return true;
+            return $conversation->user->is($user); //Solo permite can update-conversation si la Conversation pertenece al usuario logueado
+        });
     }
 }

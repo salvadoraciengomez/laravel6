@@ -2,6 +2,7 @@
     namespace App;
 
     use Illuminate\Database\Eloquent\Model;
+    use App\Reply;
 
     class Conversation extends Model{
         public function replies(){
@@ -12,6 +13,10 @@
         }
         public function usuario(){
             return $this->belongsTo(User::class);
+        }
+        public function setBestReply(Reply $reply){
+            $this->bestReplyId=$reply->id;
+            $this->save();
         }
     }
 ?>

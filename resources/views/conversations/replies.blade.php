@@ -4,8 +4,8 @@
 
         {{ $reply->body }}
 
-        @can ('update-conversation', $conversation)
-            <form method="POST" action="best-replies/{{ $reply->id }}">
+        @can ('update', $conversation)
+            <form method="POST" action="/best-replies/{{ $reply->id }}">
                 @csrf
                 <button type="submit">Best Reply?</button>
             </form>

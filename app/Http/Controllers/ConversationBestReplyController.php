@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class ConversationBestReplyController extends Controller
 {
     public function store(Reply $reply){
-        $this->authorize('update-conversation', $reply->conversation);
+        // $this->authorize('update-conversation', $reply->conversation); //Usando el Facade Gate en AuthServiceProvider
+        $this->authorize('update', $reply->conversation); //Usando la política ConversationPolicy@update
 
-        $reply->conversation->best_reply_id= $reply->id;
-        $reply->conversation->save();
+        $reply->conversation->setBestReply($reply);
 
         return back();
     }

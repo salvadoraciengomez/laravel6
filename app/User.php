@@ -60,10 +60,13 @@ class User extends Authenticatable
     // hasOne · hasMany · belongsTo · belongsToMany
 
     public function roles(){
-        return $this->belongsToMany(Role::class)->withTimestamps();;
+        return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
     public function assignRole($role){
+        if(is_string($role)){
+            $role= Role::whereName($role)->firstOrFail();
+        }
         $this->roles()->sync($role); // sync reemplaza save() solamente intenta añadir y da error si ya existe
     }
     public function abilities(){

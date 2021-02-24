@@ -12,7 +12,10 @@ class Role extends Model
     }
 
     public function allowTo($ability){
-        $this->abilities()->save($ability);
+        if(is_string($ability)){
+            $ability = Ability::whereName($ability)->firstOrFail();
+        }
+        $this->abilities()->sync($ability, false); //sync reemplaza si ya existe y no da el error que da save()
     }
 }
 

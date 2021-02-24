@@ -77,6 +77,7 @@ Auth::routes();
 Route::get('/', 'PagesController@home');
 //Recomendado usar las instanciaciones en AppServiceProvider@register
 
+Route::get('acciones', 'AccionesController@index');
 
 Route::get('conversations', 'ConversationsController@index');
 Route::get('conversations/{conversation}', 'ConversationsController@show');

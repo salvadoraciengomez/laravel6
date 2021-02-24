@@ -66,5 +66,8 @@ class User extends Authenticatable
     public function assignRole($role){
         $this->roles()->save($role);
     }
+    public function abilities(){
+        return $this->roles->map->abilities->flatten()->pluck('name')->unique();
+    }
 
 }

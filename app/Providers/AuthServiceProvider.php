@@ -33,5 +33,9 @@ class AuthServiceProvider extends ServiceProvider
         //     //return true;
         //     return $conversation->user->is($user); //Solo permite can update-conversation si la Conversation pertenece al usuario logueado
         // });
+
+        Gate::before(function($user, $ability){
+            return $user->abilities()->contains($ability);  ///Permite can('edit_forum') para el usuario logueado
+        });
     }
 }

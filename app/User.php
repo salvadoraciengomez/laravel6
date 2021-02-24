@@ -64,7 +64,7 @@ class User extends Authenticatable
     }
 
     public function assignRole($role){
-        $this->roles()->save($role);
+        $this->roles()->sync($role); // sync reemplaza save() solamente intenta añadir y da error si ya existe
     }
     public function abilities(){
         return $this->roles->map->abilities->flatten()->pluck('name')->unique();
